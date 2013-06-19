@@ -45,38 +45,19 @@
                             <p:messages id="test"/>
                         </p:panel>
                         <p:outputLabel escape="false" value="Liste des Cadres" rendered="#{cadreController.items.rowCount == 0}"/>
-                        <h:panelGroup>
-                            <h:outputText value="#{cadreController.pagination.pageFirstItem + 1} ..#{cadreController.pagination.pageFirstItem + 1}/#{cadreController.pagination.itemsCount}" ></h:outputText>
-                            <p:commandLink action="#{cadreController.previous}" value="Precedent #{cadreController.pagination.pageSize}" rendered="#{cadreController.pagination.hasPreviousPage}"/>&nbsp;
-                    <p:commandLink action="#{cadreController.next}" value="Suivant #{cadreController.pagination.pageSize}" rendered="#{cadreController.pagination.hasNextPage}"/>&nbsp;
-                    <p:dataTable value="#{cadreController.items}" var="item">
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="Id cadre"/>
-                            </f:facet>
-                            <p:commandLink action="#{cadreController.prepareEdit}" value="#{item.id}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="Id cadre"/>
-                            </f:facet>
-                            <h:outputText value="#{item.intitule}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="Id cadre"/>
-                            </f:facet>
-                            <h:outputText value="#{item.echelle}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="Id cadre"/>
-                            </f:facet>
-                            <h:outputText value="#{item.description}"/>
-                        </p:column>
-                    </p:dataTable>
-                    
-                        </h:panelGroup>
+                        <p:panelGrid columns="2">
+                            <p:outputLabel value="Id Cadre"/>
+                            <p:inputText id="id" value="#{cadreController.selected.id}"/>
+                            <p:outputLabel value="Intitule du Cadre"/>
+                            <p:inputText id="intitule" value="#{cadreController.selected.intitule}"/>
+                            <p:outputLabel value="Echelle corespondante"/>
+                            <p:inputText id="echelle" value="#{cadreController.selected.echelle}"/>
+                            <p:outputLabel value="description"/>
+                            <p:inputText id="description" value="#{cadreController.selected.description}"/>
+                        </p:panelGrid>
+                        <p:commandLink action="#{cadreController.update}" value="Mettre a Jour"/>
+                        
+                        <p:commandLink action="#{cadreController.prepareList}" value="retour a la liste des cadres"/>
                     </h:form>
                 </p:layoutUnit>
 
