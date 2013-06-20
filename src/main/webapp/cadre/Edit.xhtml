@@ -55,9 +55,9 @@
                             <p:outputLabel value="description"/>
                             <p:inputText id="description" value="#{cadreController.selected.description}"/>
                         </p:panelGrid>
-                        <p:commandLink action="#{cadreController.update}" value="Mettre a Jour"/>
-                        
-                        <p:commandLink action="#{cadreController.prepareList}" value="retour a la liste des cadres"/>
+                        <h:commandLink action="#{cadreController.update}" value="Mettre a Jour"/>
+                        <br/>
+                        <h:commandLink action="#{cadreController.prepareList}" value="retour a la liste des cadres"/>
                     </h:form>
                 </p:layoutUnit>
 

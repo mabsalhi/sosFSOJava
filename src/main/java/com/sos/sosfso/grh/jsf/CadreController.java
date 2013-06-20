@@ -90,12 +90,15 @@ public class CadreController implements Serializable {
     public String create() {
         try {
             getFacade().create(current);
-            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("AddressCreated"));
-            return prepareCreate();
-        } catch (Exception e) {
-            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+            JsfUtil.addSuccessMessage("Cadre créer avec success !!");
+            
+            return prepareList();
+          } catch (Exception e) {
+            JsfUtil.addErrorMessage(e, "Erreur lors de la persistence de l'object CADRE");
             return null;
         }
+        
+        
     }
 
     public String prepareEdit() {
@@ -107,10 +110,10 @@ public class CadreController implements Serializable {
     public String update() {
         try {
             getFacade().edit(current);
-            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("AddressUpdated"));
+            JsfUtil.addSuccessMessage("Cadre mis a jour");
             return "View";
         } catch (Exception e) {
-            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+            JsfUtil.addErrorMessage(e, "Erreur lors de la persistence des données !!");
             return null;
         }
     }
